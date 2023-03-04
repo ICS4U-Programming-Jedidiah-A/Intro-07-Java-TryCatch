@@ -19,28 +19,35 @@ public final class TryCatch {
     private TryCatch() {
         throw new IllegalStateException("Utility Class");
     }
-        public static void main(String[] args) {
+
+    /**
+    * This is the main method.
+    *
+    * @param args Unused
+    *
+    */
+    public static void main(String[] args) {
         // Using Scanner for Getting Input from User
         final Scanner scanner = new Scanner(System.in);
 
+        try {
+            System.out.println("Enter the radius of your sphere: ");
 
-    try {
-        System.out.println("Enter the radius of your sphere: ");
+            // Get the radius as a string
+            final String radius = scanner.nextLine();
 
-        // Get the radius as a string
-        final String radius = scanner.nextLine();
-
-        // Convert the radius to a double
-        final double radiusDouble = Double.parseDouble(radius);
+            // Convert the radius to a double
+            final double radiusDouble = Double.parseDouble(radius);
             if (radiusDouble < 0) {
                 System.out.println("Radius can not be negative");
             } else {
-
-            final double volume = 4.0 / 3.0 * Math.PI * Math.pow(radiusDouble, 3);
+                final double volume =
+                    4.0 / 3.0 * Math.PI * Math.pow(radiusDouble, 3);
 
                 System.out.print("The volume of the sphere with radius: ");
                 System.out.print(radius + "cm, is ");
-                System.out.println(volume);
+                System.out.format("%.2f .", volume);
+                System.out.print("cm^3");
             }
         } catch (NumberFormatException error) {
             System.out.println("Please enter a valid radius. "
